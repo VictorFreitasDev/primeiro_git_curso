@@ -1,7 +1,120 @@
-h1 {
-    color: blue;
+:root {
+    --azul-noite: #102a43;
+    --azul: #176b87;
+    --coral: #f26b5e;
+    --creme: #f7f3ed;
+    --cinza: #5d6872;
+    --linha: #d9d5ce;
 }
 
-h2{
-    color: green;
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--creme);
+    color: var(--azul-noite);
+    font-family: Georgia, 'Times New Roman', serif;
+}
+
+.pagina-inicial {
+    width: min(1180px, calc(100% - 48px));
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 28px 0 24px;
+}
+
+.barra-navegacao, .acoes, .status, .marca, .atalho, .rodape {
+    display: flex;
+    align-items: center;
+}
+
+.barra-navegacao {
+    justify-content: space-between;
+    border-bottom: 1px solid var(--linha);
+    padding-bottom: 22px;
+}
+
+.marca {
+    gap: 12px;
+    color: var(--azul-noite);
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.marca-simbolo {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    background: var(--azul-noite);
+    color: var(--creme);
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.status {
+    gap: 8px;
+    color: var(--cinza);
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.status-ponto { width: 7px; height: 7px; border-radius: 50%; background: #4eaa73; }
+
+.hero {
+    display: flex;
+    min-height: 475px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 74px 7% 68px;
+    background: linear-gradient(115deg, #e7f0ed 0%, #e7f0ed 61%, #d5e6e0 61%, #d5e6e0 100%);
+}
+
+.hero-conteudo { max-width: 690px; }
+.etiqueta { margin: 0 0 22px; color: var(--coral); font-family: Arial, sans-serif; font-size: 11px; font-weight: bold; letter-spacing: .2em; }
+
+h1 {
+    margin: 0;
+    color: var(--azul-noite);
+    font-size: clamp(42px, 6vw, 78px);
+    font-weight: normal;
+    line-height: .98;
+}
+
+h1 em { color: var(--azul); font-style: italic; }
+.hero-texto { max-width: 430px; margin: 26px 0 32px; color: var(--cinza); font-family: Arial, sans-serif; font-size: 16px; line-height: 1.6; }
+.acoes { gap: 12px; flex-wrap: wrap; }
+
+.botao { padding: 15px 20px; font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; text-decoration: none; transition: transform .2s ease, background-color .2s ease; }
+.botao:hover, .atalho:hover { transform: translateY(-3px); }
+.botao-principal { background: var(--coral); color: white; }
+.botao-principal span, .botao-secundario span { margin-left: 16px; font-size: 17px; }
+.botao-secundario { border: 1px solid var(--azul-noite); color: var(--azul-noite); }
+
+.hero-detalhe { display: flex; width: 180px; flex-direction: column; align-items: flex-end; gap: 16px; color: var(--azul); }
+.numero-destaque { font-size: 110px; line-height: .8; opacity: .8; }
+.linha-detalhe { width: 100%; border-top: 1px solid var(--azul); }
+.texto-detalhe { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: .16em; line-height: 1.6; text-align: right; text-transform: uppercase; }
+
+.atalhos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; padding: 28px 0; }
+.atalho { min-height: 92px; gap: 18px; padding: 18px 22px; border: 1px solid var(--linha); color: var(--azul-noite); text-decoration: none; transition: transform .2s ease, border-color .2s ease; }
+.atalho:hover { border-color: var(--azul); }
+.atalho-numero, .atalho-seta { color: var(--coral); font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; }
+.atalho-conteudo { display: grid; flex: 1; gap: 7px; }
+.atalho-conteudo strong { font-size: 19px; font-weight: normal; }
+.atalho-conteudo small { color: var(--cinza); font-family: Arial, sans-serif; font-size: 12px; }
+
+.rodape { justify-content: flex-end; gap: 10px; color: var(--cinza); font-family: Arial, sans-serif; font-size: 10px; letter-spacing: .14em; }
+.rodape span { color: var(--coral); }
+
+@media (max-width: 640px) {
+    .pagina-inicial { width: min(100% - 30px, 520px); padding-top: 18px; }
+    .status, .hero-detalhe { display: none; }
+    .hero { min-height: auto; padding: 54px 24px 44px; }
+    h1 { font-size: 48px; }
+    .atalhos { grid-template-columns: 1fr; }
 }
